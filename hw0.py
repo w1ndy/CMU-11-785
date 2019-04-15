@@ -10,11 +10,11 @@ def vectorize_PrimeRelu(M):
     return np.where(np.array(M) > 0, 1, 0)
 
 def slice_fixed_point(M, start, length):
-    return [d[start:start+length] for d in data]
+    return [d[start:start+length] for d in M]
 def slice_last_point(M, length):
-    return [d[len(d)-length:] for d in data]
+    return [d[len(d)-length:] for d in M]
 def slice_random_point(M, length):
-    return [d[np.random.randint(0, len(d)-length):][:length] for d in data]
+    return [d[np.random.randint(0, len(d)-length):][:length] for d in M]
 
 def pad_pattern_end(M):
     length = max(map(len, M))
