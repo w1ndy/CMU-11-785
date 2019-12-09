@@ -32,6 +32,9 @@ def tensor_sumproducts(A, B):
     return torch.dot(A, B)
 
 def tensor_ReLU(M):
-    return torch.max(torch.zeros(M.size()), M)
+    zeros = torch.zeros(M.size())
+    zeros = zeros.type(torch.LongTensor)
+    return torch.max(zeros, M)
+
 def tensor_ReLU_prime(M):
     return torch.clamp(M, min=0) * torch.reciprocal(torch.clamp(M, min=1e-8))
